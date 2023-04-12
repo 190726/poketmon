@@ -7,11 +7,11 @@
 </head>
 
 <body>
-	<h1>포켓몬 9세대</h1>
+	<h1>포켓몬 9세대!</h1>
 	<ul>
-		<li>th:text 사용 <span th:text="${data}"></span></li>
-		<li>컨텐츠 안에서 직접 출력하기 = [[${data}]]</li>
+		<li>th:text 사용 <span th:text="${poket.name}"></span></li>
 	</ul>
+	<img th:src="|/img/${poket.image}|"/>
 </body>
 
 </html>
