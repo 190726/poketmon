@@ -9,9 +9,15 @@
 <body>
 	<h1>포켓몬 9세대!</h1>
 	<ul>
-		<li>th:text 사용 <span th:text="${poket.name}"></span></li>
+		<li>th:text 사용 <span th:text="${poket1.name}"></span></li>
+		<li>th:text 사용 <span th:text="${poket2.name}"></span></li>
+		<li>th:text 사용 <span th:text="${poket3.name}"></span></li>
+		<li>th:text 사용 <span th:text="${poket4.name}"></span></li>
 	</ul>
-	<img th:src="|/img/${poket.image}|"/>
+	<img th:src="|/img/${poket1.image}|"/>
+	<img th:src="|/img/${poket2.image}|"/>
+	<img th:src="|/img/${poket3.image}|"/>
+	<img th:src="|/img/${poket4.image}|"/>
 </body>
 
 </html>
