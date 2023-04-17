@@ -1,5 +1,7 @@
 package com.sk.poket.adapter.web;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,10 +25,11 @@ public class PoketFetchController {
 	
 	@PostMapping("/9g")
 	public Poketmon save(@RequestParam("name") String name,
-			@RequestParam("file") MultipartFile file) {
+			@RequestParam("file") MultipartFile file) throws IOException {
 		System.out.println(name);
 		System.out.println(file.getOriginalFilename());
-		return new Poketmon(null, "1", "a");
+		Poketmon saved = poketJpaRepository.save(new Poketmon(null, name, file.getOriginalFilename(), file.getBytes()));
+		return saved;
 	}
 	
 	@GetMapping("/9g/{no}")
