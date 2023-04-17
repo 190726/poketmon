@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.sk.poket.adapter.data.PoketJpaRepository;
 import com.sk.poket.domain.Poketmon;
@@ -20,8 +22,11 @@ public class PoketFetchController {
 	@Autowired PoketJpaRepository poketJpaRepository;
 	
 	@PostMapping("/9g")
-	public Poketmon save(Poketmon save) {
-		return new Poketmon(null, "", "");
+	public Poketmon save(@RequestParam("name") String name,
+			@RequestParam("file") MultipartFile file) {
+		System.out.println(name);
+		System.out.println(file.getOriginalFilename());
+		return new Poketmon(null, "1", "a");
 	}
 	
 	@GetMapping("/9g/{no}")

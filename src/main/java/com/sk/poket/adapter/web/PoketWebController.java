@@ -17,4 +17,10 @@ public class PoketWebController {
 		model.addAttribute("poketmons", PoketSampleStub.poketmons());
 		return "poket";
 	}
+	
+	@GetMapping("/save")
+	public String save(Model model) {
+		
+		return "save";
+	}
 }

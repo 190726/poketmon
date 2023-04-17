@@ -8,7 +8,7 @@
 
 <body>
 	
-	<h1>포켓몬 9세대!</h1>
+	<h1>포켓몬 9세대! 목록</h1>
 	<ul th:each="poket: ${poketmons}">
 		<li><span th:text="${poket.name}"></span>
 			<img th:src="|/img/${poket.image}|"/>

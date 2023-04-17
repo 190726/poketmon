@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>POKET</title>
+</head>
+
+<body>
+	
+	<h1>포켓몬 9세대 입력</h1>
+	<input type="text" id="name"/>
+	<input type="file" id="file" multiple/>
+	<button type="button" onclick="upload()">upload</button>
+
+</body>
+<script>	
+	
+
+	const upload = () =>{
+		
+		let file = document.querySelector('#file').files[0];
+		let name = document.querySelector('#name').value;
+		
+		const formData = new FormData();
+		formData.append('file', file);
+		formData.append('name', name);
+	
+		fetch('/poket/9g', {
+			method: 'POST',
+			body: formData
+		}).then(res => res.json()).then(data => console.log(data))
+		.catch(err => console.log(err));
+		
+	}
+
+</script>
+
+</html>
