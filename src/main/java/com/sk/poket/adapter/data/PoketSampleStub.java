@@ -7,7 +7,7 @@ import com.sk.poket.domain.Poketmon;
 
 public class PoketSampleStub {
 
-	public static List<Poketmon> poketmons(){
+	public static List<Poketmon> poketmons() {
 		Poketmon p1 = new Poketmon(1L, "나오하", "001.png");
 		Poketmon p2 = new Poketmon(2L, "나로테", "002.png");
 		Poketmon p3 = new Poketmon(3L, "마스카나", "003.png");
