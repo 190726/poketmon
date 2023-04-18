@@ -28,7 +28,7 @@ public class PoketFetchController {
 			@RequestParam("file") MultipartFile file) throws IOException {
 		System.out.println(name);
 		System.out.println(file.getOriginalFilename());
-		Poketmon saved = poketJpaRepository.save(new Poketmon(null, name, file.getOriginalFilename(), file.getBytes()));
+		Poketmon saved = poketJpaRepository.save(new Poketmon(null, name, file.getOriginalFilename(), file.getBytes(), null));
 		return saved;
 	}
 	

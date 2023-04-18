@@ -7,14 +7,12 @@
 </head>
 
 <body>
-	
 	<h1>포켓몬 9세대! 목록</h1>
 	<ul th:each="poket: ${poketmons}">
 		<li><span th:text="${poket.name}"></span>
-			<img th:src="|/img/${poket.image}|"/>
+			<img th:src="${'data:image/png;base64,' + poket.imageBase64}" alt="">
+			<a download="a.png" th:href="'data:image/jpeg;base64,'+${poket.image}">다운로드!</a>
 		</li>
 	</ul>
-	
 </body>
-
 </html>
