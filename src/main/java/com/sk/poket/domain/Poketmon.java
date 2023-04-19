@@ -13,8 +13,10 @@ import javax.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
+@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

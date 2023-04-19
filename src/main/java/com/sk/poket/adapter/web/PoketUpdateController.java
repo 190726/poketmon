@@ -2,6 +2,8 @@ package com.sk.poket.adapter.web;
 
 import java.io.IOException;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,22 +21,19 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/poket")
-public class PoketFetchController {
+public class PoketUpdateController {
 	
 	@Autowired PoketJpaRepository poketJpaRepository;
 	
+	@Transactional
 	@PostMapping("/9g")
 	public Poketmon save(@RequestParam("name") String name,
 			@RequestParam("file") MultipartFile file) throws IOException {
-		System.out.println(name);
-		System.out.println(file.getOriginalFilename());
-		Poketmon saved = poketJpaRepository.save(new Poketmon(null, name, file.getOriginalFilename(), file.getBytes(), null));
-		return saved;
+		
+		var poketmon = new Poketmon(null, name, file.getOriginalFilename(), file.getBytes(), null);
+		log.info("save request is {}", poketmon);
+		
+		return poketJpaRepository.save(poketmon);
 	}
 	
-	@GetMapping("/9g/{no}")
-	public String findBy(@PathVariable String no) {
-		log.info(no);
-		return "뜨아거";
-	}
 }
